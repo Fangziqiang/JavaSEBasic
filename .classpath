@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="src/javase"/>
 	<classpathentry kind="src" path="src/java_manual"/>
 	<classpathentry kind="src" path="src/sorts"/>
+	<classpathentry kind="src" path="src/server"/>
 	<classpathentry kind="lib" path="lib"/>
 	<classpathentry kind="lib" path="lib/jai_imageio-1.1-alpha.jar"/>
 	<classpathentry kind="lib" path="lib/ApacheJMeter_core.jar"/>
