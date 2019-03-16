@@ -1,4 +1,4 @@
-package java001;
+package stringTest;
 
 public class TestString2 {
 
