@@ -10,6 +10,7 @@ class Fu{
 	}
 }
 class Zi extends Fu{
+	//继承时方法有一个现象，方法重写
 	public void show2(){
 		System.out.println("这里是一堆垃圾");
 	}
