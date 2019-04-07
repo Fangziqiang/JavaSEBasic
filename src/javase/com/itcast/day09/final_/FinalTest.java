@@ -32,7 +32,11 @@ public class FinalTest {
 				System.out.println(ss.age);
 				ss.age = 100;
 				System.out.println(ss.age);
+				//输出结果：
+//				10
+//				100
 				
+				//重新分配内存空间。无法为最终变量ss分配值
 				//ss=new Student();
 	}
 
