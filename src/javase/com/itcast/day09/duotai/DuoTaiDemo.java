@@ -71,7 +71,8 @@ public class DuoTaiDemo {
 		System.out.println("成员变量："+f1.num);
 		//找不到符号
 		//System.out.println(f1.num2);
-		
+		Zi z = (Zi)f1;
+		z.method();
 	}
 
 }
