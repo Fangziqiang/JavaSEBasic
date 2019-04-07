@@ -15,30 +15,36 @@ class Animal1{
 }
 
 class Cat1 extends Animal1{
+	@Override
 	public void eat(){
 		System.out.println("Ã¨³ÔÓã");
 	}
 	
+	@Override
 	public void sleep(){
 		System.out.println("Ã¨Å¿×ÅË¯¾õ");
 	}
 }
 
 class Dog1 extends Animal1{
+	@Override
 	public void eat(){
 		System.out.println("¹·³Ô¹ÇÍ·");
 	}
 	
+	@Override
 	public void sleep(){
 		System.out.println("¹·Õ¾×ÅË¯¾õ");
 	}
 }
 
 class Pig extends Animal1{
+	@Override
 	public void eat(){
 		System.out.println("Öí³Ô°×²Ë");
 	}
 	
+	@Override
 	public void sleep(){
 		System.out.println("Öí²à×ÅË¯");
 	}
@@ -48,7 +54,6 @@ class AnimalTool{
 	private AnimalTool(){
 		
 	}
-	/*
 	//µ÷ÓÃÃ¨µÄ¹¦ÄÜ
 	public static void useCat(Cat1 c){
 		c.eat();
@@ -65,7 +70,6 @@ class AnimalTool{
 		p.eat();
 		p.sleep();
 	}
-	*/
 	
 	public static void useAnimal(Animal1 a){
 		a.eat();
@@ -118,6 +122,11 @@ public class DuoTaiDemo2 {
 		AnimalTool.usePig(p1);
 		AnimalTool.usePig(p2);
 		AnimalTool.usePig(p3);
+		
+		System.out.println("----------AnimalTool-useAnimal------------");
+		AnimalTool.useAnimal(c1);
+		c1.eat();
+		c1.sleep();
 	}
 	
 	

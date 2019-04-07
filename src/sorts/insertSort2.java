@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class insertSort{
+public class insertSort2{
     	public static void main(String [] args){
     	int maxSize=10;
     	System.out.println("请输入要插入的整数");

@@ -37,7 +37,8 @@ package com.itcast.day09.duotai;
 	 public int num = 1000;
 	 public int num2 = 200;
 	 
-	 public void show(){
+	 @Override
+	public void show(){
 		 System.out.println("成员方法：show Zi");
 	 }
 	 
@@ -64,7 +65,7 @@ public class DuoTaiDemo {
 		//f1.method();
 		
 		//静态方法：编译看左边，运行看左边
-		f1.funcation();
+		Fu.funcation();
 		
 		//成员变量：编译看左边，运行看左边，所以打印的num值为100
 		System.out.println("成员变量："+f1.num);
