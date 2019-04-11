@@ -35,6 +35,7 @@ public class DuoTaiTest {
 		Dog d = (Dog)a;
 		d.eat();
 		d.look
+System.out.println("--------------------------------------------------");
 		
 	}
 }
