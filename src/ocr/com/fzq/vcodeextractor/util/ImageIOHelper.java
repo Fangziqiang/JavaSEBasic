@@ -17,6 +17,7 @@ import javax.imageio.stream.ImageOutputStream;
 
 import com.sun.media.imageio.plugins.tiff.TIFFImageWriteParam;
 
+//×¢ÊÍÐÅÏ¢
 public class ImageIOHelper{
     public static File createImage(File imageFile, String imageFormat) {
 

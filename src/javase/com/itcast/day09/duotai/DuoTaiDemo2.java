@@ -1,9 +1,23 @@
 package com.itcast.day09.duotai;
 /*
  * 多态的好处：
- * 		A：
+ * 		A：提高了代码的维护性（继承保证）
+ * 		B：提高了代码的扩展性
  */
 
+/*
+ * 多态的弊端
+ * 		不能使用子类的特有功能
+ * 	想使用，怎么用？
+ * 		A：创建子类对象，使用子类方法（可以，但是很多时候不合理，占用内存）
+ * 		B：把父类的引用强制转换为子类的引用。（向下转型）
+ * 		Zi z = (Zi)f;
+ * 	对象间的转型问题：
+ * 		向上转型：
+ * 			Fu f = new Zi();
+ * 		向下转型：
+ * 			Zi z = (Zi)f;要求该f必须是能够转换为Zi的。
+ */
 class Animal1{
 	public void eat(){
 		System.out.println("吃饭");
@@ -15,30 +29,36 @@ class Animal1{
 }
 
 class Cat1 extends Animal1{
+	@Override
 	public void eat(){
 		System.out.println("猫吃鱼");
 	}
 	
+	@Override
 	public void sleep(){
 		System.out.println("猫趴着睡觉");
 	}
 }
 
 class Dog1 extends Animal1{
+	@Override
 	public void eat(){
 		System.out.println("狗吃骨头");
 	}
 	
+	@Override
 	public void sleep(){
 		System.out.println("狗站着睡觉");
 	}
 }
 
 class Pig extends Animal1{
+	@Override
 	public void eat(){
 		System.out.println("猪吃白菜");
 	}
 	
+	@Override
 	public void sleep(){
 		System.out.println("猪侧着睡");
 	}
@@ -48,7 +68,6 @@ class AnimalTool{
 	private AnimalTool(){
 		
 	}
-	/*
 	//调用猫的功能
 	public static void useCat(Cat1 c){
 		c.eat();
@@ -65,7 +84,6 @@ class AnimalTool{
 		p.eat();
 		p.sleep();
 	}
-	*/
 	
 	public static void useAnimal(Animal1 a){
 		a.eat();
@@ -118,6 +136,11 @@ public class DuoTaiDemo2 {
 		AnimalTool.usePig(p1);
 		AnimalTool.usePig(p2);
 		AnimalTool.usePig(p3);
+		
+		System.out.println("----------AnimalTool-useAnimal------------");
+		AnimalTool.useAnimal(c1);
+		c1.eat();
+		c1.sleep();
 	}
 	
 	
