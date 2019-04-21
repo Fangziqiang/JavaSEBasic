@@ -10,7 +10,7 @@ package com.itcast.day09.duotai;
  */
 
 class A{
-	public void showA(){
+	public void show(){
 		show2();
 	}
 	public void show2(){
@@ -23,8 +23,22 @@ class B extends A{
 		System.out.println("°®");
 	}
 }
-class C extends B{}
+class C extends B{
+	public void show(){
+		super.show();
+	}
+	
+	public void show2(){
+		System.out.println("Äã");
+	}
+}
 
 public class DuitaiTest3 {
-
+	public static void main(String[] args){
+		A a = new B();
+		a.show();//°®
+		
+		B b = new C();
+		b.show();//Äã
+	}
 }
