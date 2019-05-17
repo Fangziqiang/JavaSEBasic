@@ -55,12 +55,26 @@ abstract class Student{
 	} 
 }
 
-class BasicStudent{
+class BasicStudent extends Student{
+	public BasicStudent(){}
+	public BasicStudent(String name,int age,String grand){
+		super(name,age,grand);
+	}
 	
+	public void study(){
+		System.out.println("基础班学生学习JavaSE");
+	}
 }
 
-class WorkStudent{
+class WorkStudent extends Student{
+	public WorkStudent(){}
+	public WorkStudent(String name,int age,String grand){
+		super(name,age,grand);
+	}
 	
+	public void study(){
+		System.out.println("就业班学生学习JavaEE");
+	}
 }
 public class AbstractTest3 {
 	public static void main(String[] args){
