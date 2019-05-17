@@ -40,8 +40,60 @@ abstract class Teacher{
 	public void setAge(int age){
 		this.age=age;
 	}
+	
+	public abstract void teach();
+}
+//基础班老师
+class BasicTeacher extends Teacher{
+	public BasicTeacher(){}
+	public BasicTeacher(String name,int age){
+		super(name,age);
+	}
+	public void teach(){
+		System.out.println("基础班老师讲解JavaSE");
+	}
+}
+
+//就业班老师
+class WorkTeacher extends Teacher{
+	public WorkTeacher(){}
+	public WorkTeacher(String name,int age){
+		super(name,age);
+	}
+	public void teach(){
+		System.out.println("就业班老师讲解JavaEE");
+	}
 }
 
 public class AbstractTest2 {
-
+	public static void main(String[] args){
+		//具体的类测试
+		
+		//测试（多态）
+		//基础班老师
+		Teacher t = new BasicTeacher();
+		t.setName("方自强");
+		t.setAge(30);
+		System.out.println(t.getName()+"---"+t.getAge());
+		t.teach();
+		System.out.println("-------------------------");
+		
+		t=new BasicTeacher("方自强",30);
+		System.out.println(t.getName()+"---"+t.getAge());
+		t.teach();
+		System.out.println("-------------------------");
+		
+		//就业班老师
+		t= new WorkTeacher();
+		t.setName("马云");
+		t.setAge(45);
+		System.out.println(t.getName()+"---"+t.getAge());
+		t.teach();
+		System.out.println("-------------------------");
+		
+		t= new WorkTeacher("马云",45);
+		System.out.println(t.getName()+"---"+t.getAge());
+		t.teach();
+		System.out.println("-------------------------");
+	}
 }
