@@ -66,6 +66,7 @@ class BasicStudent extends Student{
 	}
 }
 
+//具体就业班学员类
 class WorkStudent extends Student{
 	public WorkStudent(){}
 	public WorkStudent(String name,int age,String grand){
@@ -78,6 +79,23 @@ class WorkStudent extends Student{
 }
 public class AbstractTest3 {
 	public static void main(String[] args){
+		//仅测试基础班学员
+		//按照多态的方式测试
+		Student s =new BasicStudent();
+		s.setName("林青霞");
+		s.setAge(27);
+		s.setGrand("1111");
+		System.out.println(s.getName()+"---"+s.getAge()+"---"+s.getGrand());
+		s.study();
+		s.eat();
+		System.out.println("----------------");
+		
+		s = new BasicStudent("武鑫",18,"1111");
+		System.out.println(s.getName()+"---"+s.getAge()+"---"+s.getGrand());
+		s.study();
+		s.eat();
+		
+		//就业班测试
 		
 	}
 }
