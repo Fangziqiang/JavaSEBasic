@@ -15,10 +15,10 @@ package com.itcast.day09.chouxiang;
  */			
 abstract class Employee{
 	private String name;
-	private int id;
+	private String id;
 	private int salary;
 	public Employee(){};
-	public Employee(String name,int id,int salary){
+	public Employee(String name,String id,int salary){
 		this.name=name;
 		this.id=id;
 		this.salary=salary;
@@ -30,10 +30,10 @@ abstract class Employee{
 		this.name=name;
 	}
 	
-	public int getId(){
+	public String getId(){
 		return id;
 	}
-	public void setId(int id){
+	public void setId(String id){
 		this.id=id;
 	}
 	
@@ -51,7 +51,7 @@ abstract class Employee{
 //普通员工类
 class  Programmer extends Employee{
 	public Programmer(){}
-	public Programmer(String name,int id,int salary){
+	public Programmer(String name,String id,int salary){
 		super(name,id,salary);
 	}
 	
@@ -65,7 +65,7 @@ class  Manager extends Employee{
 	//奖金
 	private int money;//bonus:奖金
 	public Manager(){}
-	public Manager(String name,int id,int salary,int money){
+	public Manager(String name,String id,int salary,int money){
 		super(name,id,salary);
 		this.money=money;
 	}
@@ -88,9 +88,33 @@ public class AbstractTest4 {
 		emp.setName("林青霞");
 		emp.setId("czbk001");
 		emp.setSalary(18000);
-		System.out.println(emp.getName()+"---"+emp.getId()+"--"+emp.getSalary);
+		System.out.println(emp.getName()+"---"+emp.getId()+"--"+emp.getSalary());
 		emp.work();
-		//就业班测试
+		System.out.println("----------------");
+		
+		/*
+		emp =new Manager();
+		emp.setName("刘毅");
+		emp.setId("czbk002");
+		emp.setSalary(8000);
+		emp.setMoney(2000)
+		System.out.println(emp.getName()+"---"+emp.getId()+"--"+emp.getSalary());
+		emp.work();
+		System.out.println("----------------");
+		*/
+		//由于子类具有特有的内容，所以我们用子类来测试
+		Manager m =new Manager();
+		m.setName("刘毅");
+		m.setId("czbk002");
+		m.setSalary(8000);
+		m.setMoney(2000);
+		System.out.println(m.getName()+"---"+m.getId()+"--"+m.getSalary());
+		m.work();
+		
+		//通过构造方法赋值
+		m = new Manager("刘毅2","czbk002_2",8000,2000);
+		System.out.println(m.getName()+"---"+m.getId()+"--"+m.getSalary());
+		m.work();
 		
 	}
 }
