@@ -9,6 +9,10 @@ package com.itcast.day09.interface_;
  * 		C：接口不能实例化
  * 			那么，接口如何实例化呢？
  * 			按照多态的方式来实例化。
+ * 		D:接口的子类
+ * 			a:可以是抽象类，但是意义不大
+ * 			b:可以是具体类，要重写接口中所有的抽象方法
+ * 			
  * 
  * 由此可见：
  * 	A：具体类多态（几乎没有）
@@ -20,11 +24,23 @@ interface AnimalTrain{
 	public abstract void jump();
 }
 
+//抽象类实现接口
+abstract class Dog implements AnimalTrain{	
+}
 
+//具体类实现接口
+class Cat implements AnimalTrain{
+	public void jump(){
+		System.out.println("猫可以跳高了");
+	}
+}
 
 class InterfaceDemo {
 	public static void main(String[] args){
-		AnimalTrain at = new AnimalTrain();
+		//AnimalTrain是抽象的；无法实例化
+		//AnimalTrain at = new AnimalTrain();
+		//at.jump();
+		AnimalTrain at = new Cat();
 		at.jump();
 	}
 }

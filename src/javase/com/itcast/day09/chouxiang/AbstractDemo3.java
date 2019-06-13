@@ -11,13 +11,13 @@ package com.itcast.day09.chouxiang;
  * static   无意义
  */
 
-abstract class Animal2{
+abstract class Animal3{
 	public int num = 10;
 	public final int num2 =20;
 	
-	public Animal2(){}
+	public Animal3(){}
 	
-	public Animal2(String name,int age){}
+	public Animal3(String name,int age){}
 	
 	//强制要求子类做的事情
 	public abstract void show();
@@ -28,7 +28,7 @@ abstract class Animal2{
 	}
 }
 
-class Dog2 extends Animal2{
+class Dog3 extends Animal3{
 	//子类必须有这个方法，因为父类中这个是抽象方法
 	public void show(){
 		System.out.println("show Dog");
@@ -38,7 +38,7 @@ class Dog2 extends Animal2{
 class AbstractDemo3 {
 	public static void main(String[] args){
 		//创建对象
-		Animal2 a = new Dog2();
+		Animal3 a = new Dog3();
 		a.num = 100;
 		System.out.println(a.num);
 //		a.num2 = 200;
