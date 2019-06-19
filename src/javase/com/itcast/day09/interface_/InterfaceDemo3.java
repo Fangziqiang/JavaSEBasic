@@ -23,7 +23,7 @@ interface Sister extends Father,Mother{
 
 class Son implements Father,Mother{
 	public void show(){
-		System.out.println("show son");
+		System.out.println("show son1111");
 	}
 	public void show2(){
 		System.out.println("show2 son");
