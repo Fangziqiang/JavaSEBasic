@@ -31,7 +31,7 @@ interface Inter{
 	//public void show(){}
 	
 //	abstract void show();//默认public
-	public void show();//默认abstrac
+	public abstract void show();//默认abstrac
 }
 
 //接口名+Impl这种格式是接口的实现类格式
