@@ -1,19 +1,14 @@
-package com.itcast.day10;
-
+package com.itcast.day10.args;
+import com.itcast.day10.*;
 /*
  * 形式参数：
  * 		基本类型（太简单，不是我今天要讲解的）
  * 		引用类型
- * 			类：（匿名对象的时候其实我们已经讲过了）需要的是该类的对象
+ * 			类做形参 ：（匿名对象的时候其实我们已经讲过了）需要的是该类的对象
  * 			抽象类
  * 			接口
  */		
 
-class Student{
-	public void study(){
-		System.out.println("Good Good Study,Day Day up");
-	}
-}
 
 class StudentDemo{
 	public void method(Student s){
