@@ -1,0 +1,126 @@
+1、docker run命令
+docker run → Docker在本机中寻找该镜像 → 是否已经安装？ →(否) Docker在Docker Hub上查找
+该镜像 → 是否在Docker Hub上？ →（是） Docker下载该镜像 → 在本机中安装该镜像 → Docker创
+建一个新的容器并启动该程序 → 容器运行起来了
+
+例： sudo Docker run dockerinaction/hello_world
+
+2、dockerinaction/hello_world是仓库或者(镜像的名称)，可以吧仓库的名称认为是安装或运行程序的名称
+
+3、Docker Hub：Docker 公司提供的公共注册服务器
+
+4、从Docker命令行工具获得帮助
+docker help 显示命令行工具的基本语法
+docker help <command>	获取有关特定命令的详细帮助内容
+
+5、创建和启动一个新的容器
+a:安装并开始运行nginx,	docker run --detach --name web nginx:latest
+--detach   在后台运行容器的守护程序 缩写为-d
+
+b:安装邮件程序
+docker run -d --name mailer dockerinaction/ch2_mailer
+
+c：运行交互式容器
+sudo docker run --interactive --tty --link web:web --name web_test busybox:latest /bin/sh
+--interactive:告诉docker标准输入流（stdin）对容器开放
+--tty：告诉docker为容器分配一个虚拟终端，这将允许你发信号给容器
+--link:命令被链接到运行NGINX的容器上
+可以在shell上运行一个命令来验证WEB服务器是否运行正常
+wget -O - http://web:80
+
+可以输入exit关闭这个互动容器
+
+也可以先创建一个交互式容器，然后手动启动该容器中的一个进程，最后再分离终端
+操作步骤：【ctrl】+【P】+ 【Q】只有使用了--tty选项，该操作才会生效
+为了完成以上要求，需要启动监控器，
+启动监控器
+docker run -it --name agent --link web:insideweb --link mailer:insidemailer dockerinaction/ch2_agent
+运行之后，该容器将每秒测试Web容器并打印如下所示的消息：
+System up.
+
+6、列举、停止、重新启动和查看容器输出
+检查哪些容器正在运行
+docker ps 
+查看所有容器
+docker ps -a
+
+重新启动容器
+docker restart web
+docker restart mailer
+docker restart agnet
+
+检查每个容器的日志
+docker logs web
+docker logs mailer
+docker logs agnet
+
+docker logs 命令使用--follow 或-f来显示整个日志，然后继续监视和更新日志的显示
+
+2.4消除元数据冲突，构建一个网站农场
+docker run -d --name webid nginx 	创建一个名为webid的容器
+docker run -d --name webid nginx 	创建另一个名为webid的容器
+这里第二个命令将会失败，并出现冲突的错误
+可以使用docker rename webid webid-old重命名当前Web容器为webid-old
+然后再创建一个名为webid的容器
+
+docker create命令和docker run很类似，主要区别在于该容器是被停止状态创建：
+docker create nginx
+
+通过docker ps来获取容器ID
+获取最后创建的那个容器的截断ID：
+docker ps --latest --quiet  
+可以使用--no-trunc命令获得完整容器ID
+
+2.4.2容器的状态和依赖
+1、不加--name参数，为每个客户启动新的NGINX和监控器实例
+MAILER_CID=${docker run -d dockerinaction/ch2_mailer}
+WEB_CID=$(docker run nginx)
+AGENT_CID=$(docker run --link $WEB_CID:insideweb --link $MAILER_CID:insidemailer dockerinaction/ch2_agent)
+
+2、启动、停止
+docker start $name or $ID
+docker stop $name or $ID
+
+
+2.5 构建与环境无关的系统
+2.5.1只读文件系统
+从WordPress镜像创建和启动一个容器
+docker run -d --name wp --read-only wordpress:4
+检查容器是否正在运行
+docker inspect --format "{{.State.Running}}" wp
+inspect命令将显示Docker为该容器保留的所有元数据（一个JSON文件），格式选项会改变元数据
+该例子中会滤除元数据的所有字段，除了该容器的运行状态
+
+
+
+删除容器
+docker rm {containerName}
+
+
+
+腾讯云使用容器部署微服务
+1、初始化镜像仓库
+设置镜像仓库的密码
+
+2、创建镜像和推送镜像到仓库
+在应用列表中，单击创建的应用 ID/应用名
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
