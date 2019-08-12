@@ -1,3 +1,6 @@
+启动docker服务
+systemctl start docker
+
 1、docker run命令
 docker run → Docker在本机中寻找该镜像 → 是否已经安装？ →(否) Docker在Docker Hub上查找
 该镜像 → 是否在Docker Hub上？ →（是） Docker下载该镜像 → 在本机中安装该镜像 → Docker创
